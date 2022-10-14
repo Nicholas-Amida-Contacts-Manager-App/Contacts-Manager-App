@@ -1,5 +1,8 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +31,7 @@ public class ContactsApp {
         return userInput;
     }
 
-    public static void addPerson () {
+    public static void addPerson () throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" 2. Add a new contact");
         System.out.println(" First Name: ");
@@ -38,24 +41,24 @@ public class ContactsApp {
         System.out.println(" Phone Number: ");
         String number = scanner.nextLine();
 
-
-
+        Files.write(
+                Paths.get("data", "contacts.txt"),
+                Arrays.asList(firstName + " " + lastName + " | " + number),
+                StandardOpenOption.APPEND
+        );
+        contacts.add(new Contacts(firstName, lastName, number));
+        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
     }
 
-//        Files.write(
-//                Paths.get("data", "contacts.txt"),
-//                Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
-//                StandardOpenOption.APPEND
-//        );
-//        Personlist.add(new Contacts(firstName, lastName, phoneNumber));
-//        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
 
 
 
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
 
         System.out.println(mainMenu());
+        ContactsApp.addPerson();
 
     }
 }

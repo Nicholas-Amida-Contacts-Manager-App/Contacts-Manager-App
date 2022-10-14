@@ -1,3 +1,5 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,11 +29,26 @@ public class ContactsApp {
     }
 
     public static void addPerson () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" 2. Add a new contact");
+        System.out.println(" First Name: ");
+        String firstName = scanner.nextLine();
+        System.out.println(" Last Name: ");
+        String lastName = scanner.nextLine();
+        System.out.println(" Phone Number: ");
+        String number = scanner.nextLine();
+
+
 
     }
 
-
-
+//        Files.write(
+//                Paths.get("data", "contacts.txt"),
+//                Arrays.asList(firstName + " " + lastName + " | " + phoneNumber),
+//                StandardOpenOption.APPEND
+//        );
+//        Personlist.add(new Contacts(firstName, lastName, phoneNumber));
+//        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
 
 
 
@@ -39,5 +56,6 @@ public class ContactsApp {
     public static void main(String[] args) {
 
         System.out.println(mainMenu());
+
     }
 }

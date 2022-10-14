@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -15,28 +16,31 @@ public class ContactsApp {
     Contacts nico = new Contacts("Nico", "barrera", "4444444444");
     Contacts jordy = new Contacts("Jordy", "ostar", "3333333333");
 
-    public static int mainMenu () {
-        System.out.println("Enter an option (1, 2, 3, 4 or 5):");
-        System.out.println(" 1. View contacts.");
-        System.out.println(" 2. Add a new contact.");
-        System.out.println(" 3. Search a contact by name.");
-        System.out.println(" 4. Delete an existing contact.");
-        System.out.println(" 5. Exit.");
+    public static void mainMenu () {
+        System.out.println("Select an option" );
+       String[] options = {
+               "View contacts.",
+               "Add a new contact.",
+               "Search a contact by name.",
+               "Delete an existing contact.",
+               "Exit."};
+       for (int i =0; i<options.length;i++ ){
+           System.out.println(i+1+": "+options[i] );
+       }
+Input.getInt("");
 
-        Scanner scanner = new Scanner(System.in);
-        int userInput = scanner.nextInt();
-        return userInput;
     }
 
     public static void addPerson () {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println(" 2. Add a new contact");
-        System.out.println(" First Name: ");
-        String firstName = scanner.nextLine();
-        System.out.println(" Last Name: ");
-        String lastName = scanner.nextLine();
-        System.out.println(" Phone Number: ");
-        String number = scanner.nextLine();
+
+        String firstName =  Input.getString(" First Name: ");
+
+        String lastName =  Input.getString(" Last Name: ");
+
+        String number =  Input.getString(" Phone Number: ");
+
 
 
 
@@ -55,7 +59,7 @@ public class ContactsApp {
 
     public static void main(String[] args) {
 
-        System.out.println(mainMenu());
+       mainMenu();
 
     }
 }

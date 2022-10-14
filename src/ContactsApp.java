@@ -21,16 +21,16 @@ public class ContactsApp {
 
     public static void mainMenu () {
         System.out.println("Select an option" );
-       String[] options = {
-               "View contacts.",
-               "Add a new contact.",
-               "Search a contact by name.",
-               "Delete an existing contact.",
-               "Exit."};
-       for (int i =0; i<options.length;i++ ){
-           System.out.println(i+1+": "+options[i] );
-       }
-Input.getInt("");
+        String[] options = {
+                "View contacts.",
+                "Add a new contact.",
+                "Search a contact by name.",
+                "Delete an existing contact.",
+                "Exit."};
+        for (int i =0; i<options.length;i++ ){
+            System.out.println(i+1+": "+options[i] );
+        }
+        Input.getInt("");
 
     }
 
@@ -45,14 +45,14 @@ Input.getInt("");
         String number =  Input.getString(" Phone Number: ");
 
 
-            Files.write(
-                    Paths.get("data", "contacts.txt"),
-                    Arrays.asList(firstName + " " + lastName + " | " + number),
-                    StandardOpenOption.APPEND
-            );
-            contacts.add(new Contacts(firstName, lastName, number));
-            System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
-        }
+        Files.write(
+                Paths.get("data", "contacts.txt"),
+                Arrays.asList(firstName + " " + lastName + " | " + number),
+                StandardOpenOption.APPEND
+        );
+        contacts.add(new Contacts(firstName, lastName, number));
+        System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
+    }
 
 
 
@@ -63,7 +63,7 @@ Input.getInt("");
 
     public static void main(String[] args) {
 
-       mainMenu();
+        mainMenu();
 
     }
 }

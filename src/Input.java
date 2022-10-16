@@ -10,6 +10,9 @@ public class Input {
             return scanner.nextLine();
 
         }
+        public static String nextLine(){
+            return scanner.nextLine();
+        }
 
         public static boolean yesNo() {
             String userInput = scanner.nextLine();

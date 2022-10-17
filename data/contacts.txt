@@ -1,4 +1,5 @@
- Name          |          Number
---------------------------------
 Nico barrera   |  4444444444
 Jordy ostar   |  3333333333
+Nico barrera   |  4444444444
+Jordy ostar   |  3333333333
+John Doe   |  1234567890

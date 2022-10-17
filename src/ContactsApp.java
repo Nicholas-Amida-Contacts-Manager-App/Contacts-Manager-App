@@ -62,7 +62,20 @@ public class ContactsApp {
     }
 
 
-//********************************* CLEAR THE CONTENT OF THE FILE********************************************
+    //********************************* Show numbered list of contacts ***********************************************************
+    public static void showListAndIndex(ArrayList<String> arrays) {
+        for (int i=0;i<arrays.size();i++) {
+            System.out.println(i+1 +": "+ arrays.get(i) );
+        }
+
+    }
+
+
+
+
+
+
+    //********************************* CLEAR THE CONTENT OF THE FILE********************************************
     public static void clearPath() {
         try {
             FileChannel.open(Paths.get("data", "contacts.txt"), StandardOpenOption.WRITE).truncate(0).close();
@@ -87,9 +100,9 @@ public class ContactsApp {
 
     }
 //*************************************DELETE CONTACTS***********************************************************
-public static void deleteOption(ArrayList<String>array, String name) {
+public static void deleteOption(ArrayList<String>array, int num) {
 
-    array.removeIf(arr -> arr.contains(name));
+    array.remove(num);
 
     }
 
@@ -153,8 +166,7 @@ for(String arr : contact){
         Contacts mido = new Contacts("Mido", "ostar", "5555555555");
         Contacts nico = new Contacts("Nico", "barrera", "4444444444");
         Contacts jordy = new Contacts("Jordy", "ostar", "3333333333");
-        contacts.add(" Name          |          Number");
-        contacts.add("--------------------------------");
+
         contacts.add(nico.getNameNum());
         contacts.add(jordy.getNameNum());
 
@@ -184,8 +196,11 @@ for(String arr : contact){
 
 
                 case 4:   //Delete an existing contact
-                    deleteOption(contacts, Input.getString("the name of the contact u want to delete"));
-
+                    showListAndIndex(contacts);
+                int ask = Input.getInt("the name of the contact u want to delete");
+                    deleteOption(contacts,ask-1);
+                    System.out.println("\n");
+                    showList(contacts);
                     break;
 
 
@@ -206,6 +221,6 @@ for(String arr : contact){
             if (answer == 1) {
                 appendAll(contacts);
             }else {continue;}
-        }while (Run==true);
+        }while (Run);
     }
 }

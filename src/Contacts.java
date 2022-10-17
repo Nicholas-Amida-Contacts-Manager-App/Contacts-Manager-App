@@ -25,7 +25,7 @@ public class Contacts {
     }
 
     public String getNameNum(){
-        return this.firstName +" "+this.lastName+ " | "+ this.number;
+        return this.firstName +" "+this.lastName+ "   |  "+ this.number;
     }
     public String toString() {
         return this.firstName + " " + this.lastName + "Phone number: " + this.number;

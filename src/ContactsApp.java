@@ -62,9 +62,6 @@ public class ContactsApp {
     }
 
 
-    // contacts.add(new Contacts(firstName, lastName, number));
-    // System.out.println(firstName + " " + lastName + " has been successfully added to the contact list ");
-
 //********************************* CLEAR THE CONTENT OF THE FILE********************************************
     public static void clearPath() {
         try {
@@ -84,7 +81,7 @@ public class ContactsApp {
             creatNew(arr);
         } else if(response.equalsIgnoreCase("n") || response.equalsIgnoreCase("no"))
         {
-            System.out.println("Ok");
+            System.out.println("your contacts has been added");
 
         }
 
@@ -92,24 +89,25 @@ public class ContactsApp {
 //*************************************DELETE CONTACTS***********************************************************
 public static void deleteOption(ArrayList<String>array, String name) {
 
-    for (String arr : array) {
-        if (arr.contains(name)) {
-            array.remove(arr);
-            break;
-
-        } else {
-
-            System.out.println(arr + "\n");
-
-
-
-        }
+    array.removeIf(arr -> arr.contains(name));
 
     }
-    System.out.println("contact not found");
 
+
+
+
+
+//**********************Search for contact*********************************
+public static void search (String name, ArrayList<String> contact){
+for(String arr : contact){
+    if(arr.contains(name)){
+        System.out.println( arr);
+    }
+
+    }
 
 }
+
 
 
 
@@ -144,6 +142,9 @@ public static void deleteOption(ArrayList<String>array, String name) {
     }
 
 
+
+    //********************************Main************************************************************
+
     public static void main(String[] args) throws FileNotFoundException {
 
         ArrayList<String> contacts = new ArrayList<>();
@@ -152,29 +153,32 @@ public static void deleteOption(ArrayList<String>array, String name) {
         Contacts mido = new Contacts("Mido", "ostar", "5555555555");
         Contacts nico = new Contacts("Nico", "barrera", "4444444444");
         Contacts jordy = new Contacts("Jordy", "ostar", "3333333333");
-        contacts.add(mido.getNameNum());
+        contacts.add(" Name          |          Number");
+        contacts.add("--------------------------------");
         contacts.add(nico.getNameNum());
         contacts.add(jordy.getNameNum());
 
 
         boolean Run = true;
+        loadList(contacts);
         do {
             int choice = mainMenu();
             switch (choice) {
 
                 case 1: //load from file
-                    loadList(contacts);
+
                     showList(contacts);
                     break;
 
 
                 case 2:  //Add contacts
                     creatNew(contacts);
-                    appendAll(contacts);
+                    showList(contacts);
                     break;
 
 
                 case 3:   //Search a contact by name
+                    search(Input.getString("Enter the name you want to search for"),contacts);
 
                     break;
 
@@ -196,7 +200,12 @@ public static void deleteOption(ArrayList<String>array, String name) {
                     System.out.println("try again");
                     break;
             }
-
+            System.out.println("\n");
+            System.out.println("Do u want to do anything else");
+            int answer = Input.getInt(" 1:  Save and Exit \n 2: Back to main Menu");
+            if (answer == 1) {
+                appendAll(contacts);
+            }else {continue;}
         }while (Run==true);
     }
 }

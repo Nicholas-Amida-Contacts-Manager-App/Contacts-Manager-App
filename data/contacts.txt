@@ -1,6 +1,4 @@
-Mido ostar | 5555555555
-Nico barrera | 4444444444
-Jordy ostar | 3333333333
-babila fombutu | 4559463390
-glo  vernda | 67890049
-yoland jay | 6784329
+ Name          |          Number
+--------------------------------
+Nico barrera   |  4444444444
+Jordy ostar   |  3333333333

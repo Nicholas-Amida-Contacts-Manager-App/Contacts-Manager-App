@@ -15,7 +15,7 @@ public class ContactsApp {
 
    //*************************** this function shows the available options*************************************
     public static int mainMenu() {
-        System.out.println("Select an option");
+        System.out.println("Select an option \n");
         String[] options = {
                 "View contacts.",
                 "Add a new contact.",
@@ -58,9 +58,13 @@ public class ContactsApp {
     //*******************this function display the contents of an arraylist line by line*************************
 
     public static void showList(ArrayList<String> arrays) {
+        System.out.println("-----------------------------------------------------");
+        System.out.printf( "%16s%10s%16s\n","NAME","|","NUMBER");
+        System.out.println("-----------------------------------------------------");
         for (String arr : arrays) {
             System.out.println(arr);
         }
+        System.out.println("-----------------------------------------------------");
 
     }
 
@@ -69,9 +73,13 @@ public class ContactsApp {
 
     //********************************* Show numbered list of contacts ***********************************************************
     public static void showListAndIndex(ArrayList<String> arrays) {
+        System.out.println("-----------------------------------------------------");
+        System.out.printf( "%16s%13s%16s\n","NAME","|","NUMBER");
+        System.out.println("-----------------------------------------------------");
         for (int i=0;i<arrays.size();i++) {
             System.out.println(i+1 +": "+ arrays.get(i) );
         }
+        System.out.println("-----------------------------------------------------");
 
     }
 
@@ -172,12 +180,9 @@ for(String arr : contact){
         ArrayList<String> contacts = new ArrayList<>();
 
 
-        Contacts mido = new Contacts("Mido", "ostar", "5555555555");
-        Contacts nico = new Contacts("Nico", "barrera", "4444444444");
         Contacts jordy = new Contacts("Jordy", "ostar", "3333333333");
 
-        contacts.add(nico.toString());
-        contacts.add(jordy.toString());
+       // contacts.add(jordy.toString());
 
 
         boolean Run = true;
@@ -206,7 +211,7 @@ for(String arr : contact){
 
                 case 4:   //Delete an existing contact
                     showListAndIndex(contacts);
-                int ask = Input.getInt("the name of the contact u want to delete");
+                int ask = Input.getInt("choose a contact to delete; 1, 2 , 3 .....");
                     deleteOption(contacts,ask-1);
                     System.out.println("\n");
                     showList(contacts);
@@ -229,7 +234,7 @@ for(String arr : contact){
             int answer = Input.getInt(" 1:  Save and Exit \n 2: Back to main Menu");
             if (answer == 1) {
                 appendAll(contacts);
-            }else {continue;}
+            }else {Run=true;}
         }while (Run);
     }
 }

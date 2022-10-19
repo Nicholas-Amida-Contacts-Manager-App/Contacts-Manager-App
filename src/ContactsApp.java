@@ -30,6 +30,7 @@ public class ContactsApp {
     }
 
 
+
     //*********************this function reads file and add to an arraylist**************************************
     public static void loadList(ArrayList<String> arrayList) throws FileNotFoundException {
 
@@ -52,6 +53,8 @@ public class ContactsApp {
 
     }
 
+
+
     //*******************this function display the contents of an arraylist line by line*************************
 
     public static void showList(ArrayList<String> arrays) {
@@ -60,6 +63,8 @@ public class ContactsApp {
         }
 
     }
+
+
 
 
     //********************************* Show numbered list of contacts ***********************************************************
@@ -84,10 +89,12 @@ public class ContactsApp {
         }
     }
 
+
+
     // ******************THIS FUNCTION CREATES A NEW CONTACT AND ADD TO AN ARRAYLIST*********************
     public static void creatNew(ArrayList<String> arr) {
         Contacts cn = new Contacts(Contacts.setFirstName(), Contacts.setLastName(), Contacts.setNumber());
-        arr.add(cn.getNameNum());
+        arr.add(cn.toString());
 
         String response = Input.getString("Do u want to add another contact [y/n]");
         if (response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes")) {
@@ -99,6 +106,9 @@ public class ContactsApp {
         }
 
     }
+
+
+
 //*************************************DELETE CONTACTS***********************************************************
 public static void deleteOption(ArrayList<String>array, int num) {
 
@@ -127,7 +137,6 @@ for(String arr : contact){
 
 
     //*********************************Clear file /Add data to file**********************************************************
-
     public static void appendAll(ArrayList<String> contacts) {
         clearPath();  //clear path function
 
@@ -167,8 +176,8 @@ for(String arr : contact){
         Contacts nico = new Contacts("Nico", "barrera", "4444444444");
         Contacts jordy = new Contacts("Jordy", "ostar", "3333333333");
 
-        contacts.add(nico.getNameNum());
-        contacts.add(jordy.getNameNum());
+        contacts.add(nico.toString());
+        contacts.add(jordy.toString());
 
 
         boolean Run = true;

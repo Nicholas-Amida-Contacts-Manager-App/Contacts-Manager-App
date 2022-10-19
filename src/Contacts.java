@@ -24,11 +24,12 @@ public class Contacts {
         return number;
     }
 
-    public String getNameNum(){
-        return this.firstName +" "+this.lastName+ "   |  "+ this.number;
+    public String getName(){
+        return this.firstName +" "+this.lastName;
     }
+    public String format = "%16s%10s%16s";
     public String toString() {
-        return this.firstName + " " + this.lastName + "Phone number: " + this.number;
+        return String.format(format,this.getName(),"|",this.number);
     }
 
 

@@ -27,8 +27,10 @@ public class Contacts {
     public String getName(){
         return this.firstName +" "+this.lastName;
     }
-    public String format = "%16s%10s%16s";
+
     public String toString() {
+
+         String format = "%16s%10s%16s";
         return String.format(format,this.getName(),"|",this.number);
     }
 
